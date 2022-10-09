@@ -33,69 +33,61 @@ Installing Active Directory Domain Services on the domain controller and setting
 <img src="https://imgur.com/Oaj1Emn.png" height="45%" width="45%"
 <br />
 <br />
-Creating an Organisational Unit:  <br/>
+Creating an Organisational Unit to add admin users:  <br/>
 <img src="https://imgur.com/CGNxOKw.png" height="50%" width="50%"
 <br />
 <br />
-Adding new registry policy and changing the binary value to 1:
-<img src=".png" height="60%" width="60%"
+Installing and deploying NAT on the domain controller: <br/>
+<img src="https://imgur.com/49ARsKU.png" height="50%" width="50%"
 <br />
 <br />
-After this is done I used command prompt to view the IP address of the VM and pinged this on my main device : <br/>
-<img src=".png" height="100%" width="100%"
+After this is done, I selected public interface that was for the client: <br/>
+<img src="https://imgur.com/qydiW3R.png" height="50%" width="50%"
 <br />
 <br />
-Now the VM can be scanned on Nessus Essentials so I first did a basic scan:  <br/>
-<img src=".png" height="100%" width="100%" 
+Installing and deploying DHCP to allow the client computer to automatically be given an IP:  <br/>
+<img src="https://imgur.com/5mhluDH.png" height="50%" width="50%" 
 <br />
 <br />
-There was only 1 medium detected vulnerability in the initial scan. As it was clear that there are more vulnerabilities it was time to do a credentialed scan - using the password of the VM host:  <br/>
-<img src=".png" height="60%" width="60%" 
+Setting the IP range for the DHCP so clients get assigned an IP within this range:  <br/>
+<img src="https://imgur.com/zGcwHTE.png" height="50%" width="50%" 
 <br />
 <br />
-After enabling credentials, results of the second scan:  <br/>
-<img src=".png" height="80%" width="80%" 
+Downloading a plain text file of 1000 random first and surnames:  <br/>
+<img src="https://imgur.com/E1YShJX.png" height="70%" width="70%" 
 <br />
 <br />
-I then installed an older version of firefox to observe how this would reflect on the vulnerability of the VM host:  <br/>
-<img src=".png" height="40%" width="40%" 
+Using a Powershell script to generate the users into the network, the script essentially takes content from the names text file and "re-orders" them in a username format and I have set all user passwords to be the same:  <br/>
+<img src="https://imgur.com/OkfVn5K.png" height="80%" width="80%" 
 <br />
 <br />
-Credentialed Vulnerability Scan with old firefox installed:  <br/>
-<img src=".png" height="60%" width="60%" 
+Setting execution policy for Powershell to enable it to run the script:  <br/>
+<img src="https://imgur.com/E8ujCrE.png" height="80%" width="80%" 
 <br />
 <br />
-Using the Nessus Software, the top 10 vulnerabilities found were displayed.
-<img src=".png" height="50%" width="50%" 
+Executing the Powershell script, all users should now be part of the network:
+<img src="https://imgur.com/kKqFSBx.png" height="80%" width="80%" 
 <br />
 <br />
-I then followed the software's recommended remediation steps against these vulnerabilities:  <br/>
-<img src=".png" height="60%" width="60%"
+The users now can be seen in the Organisational Unit:  <br/>
+<img src="https://imgur.com/klbaa6y.png" height="50%" width="50%"
 <br />
 <br />
-Instead of updating firefox I decided to just uninstall it and only update Windows, as I didn't want to strain my laptop with multiple updates: <br/>
-<img src=".png" height="60%" width="60%"
+Setting up the client running windows 10 on a second VM, I've set the network to be internal - so it will use the Domain Controller in order to access the internet: <br/>
+<img src="https://imgur.com/5dcYJKq.png" height="60%" width="60%"
 <br />
 <br />
-After uninstalling firefox and updating windows the final scan: <br/>
-<img src=".png" height="60%" width="60%"
+Once the client VM has finished installation, we can see whether it can connect to the internet via the Domain Controller: <br/>
+<img src="https://imgur.com/707vh3n.png" height="60%" width="60%"
 <br />
 <br />
-Comparison graphs of each stage: <br/>
-Initial <br/>
-<img src=".png" height="30%" width="30%"
+Changing the client name and joining it to the domain, so that it can be used to log in on the main computer as a user: <br/>
+<img src="https://imgur.com/Bhd6LGa.png" height="30%" width="30%"
 <br />
 <br />
-Credentialled <br/>
-<img src=".png" height="30%" width="30%"
-<br />
-<br />
-Depricated firefox <br/>
-<img src=".png" height="30%" width="30%"
-<br />
-<br />
-Post remediation <br/>
-<img src=".png" height="30%" width="30%"
+Now the client computer is visible on the Active Directory as a computer, and it can log in to the domain as well as access the internet! : <br/>
+<br/>
+<img src="https://imgur.com/7i2PpeD.png" height="50%" width="50%"
 </p>
 <h2>Final Thoughts</h2>
 .
