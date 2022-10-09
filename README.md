@@ -1,7 +1,9 @@
 <h1>Active Directory Home Lab</h1>
 
 <h2>Description</h2>
-This project is an attempt at creating a home lab running Active Directory, where there is a Domain Controller (VirtualBox machine) running Windows Server 2019. The domain controller has 2 network connections, one internal and one to the internet. I have added 1000 users to the network using a windows powershell script and the aim of the project is to get a second virtual machine running windows 10 to connect to the internet through the internal network of the domain controller. 
+This project is an attempt at creating a home lab running Active Directory, where there is a Domain Controller (VirtualBox machine) running Windows Server 2019. The domain controller has 2 network connections, one internal and one to the internet. I have added 1000 users to the network using a windows powershell script and the aim of the project is to get a second virtual machine running windows 10 to connect to the internet through the internal network of the domain controller.
+I made a small visual diagram of the architecture here:
+<img src="https://imgur.com/FK8tpN7.png" height="55%" width="55%"/>
 <br />
 
 
@@ -90,7 +92,10 @@ Now the client computer is visible on the Active Directory as a computer, and it
 <img src="https://imgur.com/7i2PpeD.png" height="50%" width="50%"
 </p>
 <h2>Final Thoughts</h2>
-.
+I enjoyed this project despite running into quite a few problems when setting this up. One of the problems I ran into was the client computer not being able to connect to the domain. I searched this issue and found that I had installed a version of windows 10 which didn't work for this function. I then deleted the virtual machine and created a new one with a different Windows 10 ISO file, luckily this resolved the issue. I also noticed a few security considerations when setting up this network, for example I set the network to have all users using the same password (including admins!) for the powershell script to execute and this is not good for an actual Active Directory. I also learnt to review a downloaded file before executing it on a device, this is because the text file which I had installed to run the powershell command had 50+ repeated users at the end of the file which someone altered on the original file, this caused many repeated errors on the powershell command which required unique users and no repeats. Although this was harmless in the end, some other files may be corrupted and cause more issues, so it is best to be precautious.
+<br/> One other security precaution I noticed is the IP lease duration allocated to the client computers, this duration should be considered if it is in a smaller network such as the computers in an internet cafe, where the clients lease should be reduced to a couple hours instead of days.
+<img src="https://imgur.com/o2rQyCj.png" height="30%" width = "30%"
+
 <!--
  ```diff
 - text in red
