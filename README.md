@@ -18,22 +18,23 @@ This project is an attempt at creating a home lab running Active Directory, wher
 <h2>Process Walkthrough:</h2>
 
 <p align="center">
-After installing Virtual Machine, changing network adaptor to be on the same physical network as main computer: <br/>
-<img src=".png" height="45%" width="45%"
+After installing VirtualBox and installing Windows 2019 Server ISO on the first virtual machine, I enabled 2 network adapters for both the internet and internal network: <br/>
+<img src="https://imgur.com/3P4mpBK.png" height="45%" width="45%"/>
+<img src="https://imgur.com/T3300f9.png" height="45%" width="45%"
 />
 <br />
 <br />
-Disabling Firewall of VM: <br/>
-<img src=".png" height="30%" width="30%"
+For the internal network I configured the IPv4 and assigned DNS to be the Domain Controller so it refers back to itself : <br/>
+<img src="https://imgur.com/sFMRVjY.png" height="30%" width="30%"
 />
 <br />
 <br />
-Modifying User Account Control:  <br/>
-<img src=".png" height="45%" width="45%"
+Installing Active Directory Domain Services on the domain controller and setting it to mydomain.com and deploying it:  <br/>
+<img src="https://imgur.com/Oaj1Emn.png" height="45%" width="45%"
 <br />
 <br />
-Enabling Remote Registry so that Nessus can perform a credentialed scan later on:  <br/>
-<img src=".png" height="60%" width="60%"
+Creating an Organisational Unit:  <br/>
+<img src="https://imgur.com/CGNxOKw.png" height="50%" width="50%"
 <br />
 <br />
 Adding new registry policy and changing the binary value to 1:
