@@ -1,6 +1,6 @@
 <h1>Active Directory Home Lab</h1>
 
-<h2>Description</h2>
+<h2>Description </h2>
 This project is an attempt at creating a home lab running Active Directory, where there is a Domain Controller (VirtualBox machine) running Windows Server 2019. The domain controller has 2 network connections, one internal and one to the internet. I have added 1000 users to the network using a windows powershell script and the aim of the project is to get a second virtual machine running windows 10 to connect to the internet through the internal network of the domain controller.
 I made a small visual diagram of the architecture here:
 <img src="https://imgur.com/FK8tpN7.png" height="55%" width="55%"/>
